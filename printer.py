@@ -33,10 +33,12 @@ def print_parameters(source: list[float]):
 
     print("*** Дисперсия ***")
     print("D =", dispersion(source))
+    print("D исправленное =", corrected_dispersion(source))
     print()
 
     print("*** Среднеквадратичное отклонение ***")
     print("s =", deviation(source))
+    print("s исправленное =", corrected_deviation(source))
     print()
 
     print("*** Эмпирическая функция распределения ***")

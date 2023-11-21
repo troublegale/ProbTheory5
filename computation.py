@@ -52,6 +52,21 @@ def deviation(source: list[float]):
     return dispersion(source) ** 0.5
 
 
+# Исправленная дисперсия
+def corrected_dispersion(source: list[float]):
+    """Исправленная дисперсия"""
+    me = math_expectation(source)
+    d = 0
+    for (elem, count) in stat_series(source):
+        d += count * (elem - me) ** 2
+    return d / (len(source) - 1)
+
+
+# Исправленное среднеквадратичное отклонение
+def corrected_deviation(source: list[float]):
+    return corrected_dispersion(source) ** 0.5
+
+
 # Эмпирическая функция распределения
 def empirical_dist(source: list[float], x: float):
     count = 0
@@ -65,7 +80,8 @@ def empirical_dist(source: list[float], x: float):
 
 # Интервальный статистический ряд
 def interval_stat_dist(source: list[float]):
-    h = (source[-1] - source[0]) / (1 + log2(len(source)))
+    # формула Стерджиса
+    h = (max(source) - min(source)) / (1 + log2(len(source)))
     first_x = source[0] - h / 2
     current_x = first_x
     interval = {current_x: 0}

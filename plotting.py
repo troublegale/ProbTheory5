@@ -4,8 +4,8 @@ from computation import *
 
 def show_graphs(source: list[float]):
     plot_empirical_dist(source)
-    bar_interval_stat_dist(source)
-    polygon_interval_stat_dist(source)
+    plot_histogram(source)
+    plot_polygon(source)
 
 
 def plot_empirical_dist(source: list[float]):
@@ -18,16 +18,16 @@ def plot_empirical_dist(source: list[float]):
     plt.show()
 
 
-def bar_interval_stat_dist(source: list[float]):
+def plot_histogram(source: list[float]):
     int_st_d = interval_stat_dist(source)
-    xs = [key for key, val in int_st_d]
-    ys = [val for key, val in int_st_d]
-    plt.bar(xs, ys, color=["blue", "indigo"], edgecolor=["indigo", "blue"], width=0.4, linewidth=3)
+    x = [key for key, val in int_st_d]
+    y = [val for key, val in int_st_d]
+    plt.bar(x, y, color=["blue", "indigo"], edgecolor=["indigo", "blue"], width=0.4, linewidth=3)
     plt.title('Гистограмма частот группированной выборки')
     plt.show()
 
 
-def polygon_interval_stat_dist(source: list[float]):
+def plot_polygon(source: list[float]):
     int_st_d = interval_stat_dist(source)
     xs = [key for key, val in int_st_d]
     ys = [val for key, val in int_st_d]
