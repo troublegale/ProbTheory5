@@ -1,5 +1,7 @@
 from collections import Counter
 from math import log2
+from scipy import stats
+import numpy
 
 
 # Вариационный ряд (значения в порядке неубывания)
@@ -15,6 +17,16 @@ def extreme_values(source: list[float]):
 # Размах выборки
 def sampling_range(source: list[float]):
     return max(source) - min(source)
+
+
+# Мода
+def mode(source: list[float]):
+    return stats.mode(source)[0]
+
+
+# Медиана
+def median(source: list[float]):
+    return numpy.median(source)
 
 
 # Статистический ряд в виде пар [значение] - [количество его появлений]

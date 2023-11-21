@@ -19,6 +19,14 @@ def print_parameters(source: list[float]):
     print("R =", to_fixed(sampling_range(source), 2))
     print()
 
+    print("*** Мода ***")
+    print("M*o =", mode(source))
+    print()
+
+    print("*** Медиана ***")
+    print("M*e =", to_fixed(median(source), 3))
+    print()
+
     print("*** Мат. ожидание ***")
     print("M =", to_fixed(math_expectation(source), 3))
     print()
