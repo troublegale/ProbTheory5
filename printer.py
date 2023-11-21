@@ -47,5 +47,5 @@ def print_parameters(source: list[float]):
         else:
             prev_val = series[i - 1][0]
             print(f"{prev_val} < x <= {val}: {empirical_dist(source, val)}")
-        last_val = series[-1][0]
-        print(f"{last_val} < x: {empirical_dist(source, float('inf'))}")
+    last_val = series[-1][0]
+    print(f"{last_val} < x: {empirical_dist(source, float('inf'))}")
