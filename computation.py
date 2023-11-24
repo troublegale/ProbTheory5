@@ -54,12 +54,8 @@ def deviation(source: list[float]):
 
 # Исправленная дисперсия
 def corrected_dispersion(source: list[float]):
-    """Исправленная дисперсия"""
-    me = math_expectation(source)
-    d = 0
-    for (elem, count) in stat_series(source):
-        d += count * (elem - me) ** 2
-    return d / (len(source) - 1)
+    d = dispersion(source)
+    return d * len(source) / (len(source) - 1)
 
 
 # Исправленное среднеквадратичное отклонение

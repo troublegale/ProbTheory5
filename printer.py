@@ -51,3 +51,14 @@ def print_parameters(source: list[float]):
             print(f"{prev_val} < x <= {val}: {empirical_dist(source, val)}")
     last_val = series[-1][0]
     print(f"{last_val} < x: {empirical_dist(source, float('inf'))}")
+    print()
+
+    print("*** Статистический ряд ***")
+    print("Значение - частота")
+    for (key, val) in series:
+        print(key, "-", val)
+    print()
+
+    print("*** Интервальный статистический ряд ***")
+    for i in interval_stat_dist(source):
+        print(i)
